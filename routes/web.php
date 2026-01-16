@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AlumnoController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\SetLanguageController;
@@ -22,10 +23,11 @@ Route::fallback(function () {
     return "te has perdido gang, $ruta no existe";
 });
 
-Route::get("/alumnos/{id}", AlumnoController::class);
 
 Route::view("about", "about")->name("about");
 Route::view("noticias", "noticias")->name("noticias");
+
+Route::resource("projects", ProjectController::class);
 ;
 require __DIR__.'/auth.php';
 
