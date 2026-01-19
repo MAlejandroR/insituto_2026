@@ -27,7 +27,7 @@ Route::fallback(function () {
 Route::view("about", "about")->name("about");
 Route::view("noticias", "noticias")->name("noticias");
 
-Route::resource("projects", ProjectController::class);
+Route::resource("projects", ProjectController::class)->middleware("auth");
 ;
 require __DIR__.'/auth.php';
 
