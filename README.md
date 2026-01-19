@@ -91,6 +91,6 @@ Nos falta modificar el front con el evento que solicitará la ruta al back
 {{--        <option value="/lang/{{$code}}">{{$content['name']}} {{$content['flag']}}</option>--}}
     @endforeach
 </select>
-
-
 ```
+
+[Instalando switchAlert](./doc/switch_alert.md)
