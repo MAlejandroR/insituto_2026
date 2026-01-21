@@ -14,6 +14,14 @@
                 </button>
             </a>
 
+    <div class="max-h-screen flex  justify-center p-2">
+    <div class="overflow-x-auto h-96 w-1/2 bg-green-50">
+        @if (session('success'))
+            <div class="mb-4 p-3 bg-green-100 text-green-700 rounded">
+                {{-- Traducimos el mensaje por si viene en clave de traducción --}}
+                {{ __(session('success')) }}
+            </div>
+        @endif
         <table class="table table-xs table-pin-rows table-pin-cols max-w-full">
             <thead>
             <tr>
@@ -27,7 +35,7 @@
             <tbody>
 
             @foreach($projects as $project)
-                <tr>
+                <tr class="hover:bg-gray-200">
                     <td>{{$project->name}}</td>
                     <td>{{$project->description}}</td>
                     <td>{{$project->hours}}</td>
@@ -45,8 +53,7 @@
                             @csrf
                             @method('DELETE')
                             <button onclick= confirmar(event)
-                                        type=submit class="btn btn-sm btn-secondary"> Borrar</button>
-                        </form>
+                                        type=submit class="btn btn-sm btn-secondary">
                     </td>
 
                 </tr>
@@ -54,6 +61,7 @@
             {{--            contenido o filas (recursos)--}}
             </tbody>
         </table>
+    </div>
     </div>
     <script>
         function confirmar(e ){
@@ -74,6 +82,7 @@
                         form.submit();
                     }
                 });
+
 
         }
     </script>
