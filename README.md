@@ -1,3 +1,57 @@
+# Creación de un proyecto con laravel
+1. [Instalación de laravel](./doc/instalacion.md)
+2. [Creando un proyecto de laravel](./doc/crear_proyecto.md)]
+3. 
+
+
+
+
+
+Debería aparecer la página de bienvenida de Laravel
+
+Estructura básica del proyecto
+
+Algunos directorios importantes:
+
+app/ → lógica de la aplicación (controladores, modelos, etc.)
+
+routes/ → definición de rutas
+
+resources/views/ → vistas Blade
+
+database/ → migraciones y base de datos
+
+public/ → punto de entrada de la aplicación
+
+Objetivo del proyecto
+
+Este proyecto se irá ampliando progresivamente para trabajar:
+
+Rutas y controladores
+
+Vistas Blade
+
+Base de datos y Eloquent
+
+Autenticación
+
+Roles (alumnos / profesores)
+
+Traducciones
+
+Vue como capa de presentación
+
+Todo paso a paso y con sentido pedagógico.
+
+Si quieres, en el siguiente paso puedo:
+
+Simplificar aún más el README para 1º contacto
+
+Añadir una línea temporal de clases
+
+O preparar un README por sesiones (Sesión 1, Sesión 2, etc.)
+
+
 ## Instalando traducciones
 ### Instalar paquetes para la utilidad
 

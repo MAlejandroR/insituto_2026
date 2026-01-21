@@ -1,6 +1,6 @@
 <x-layouts.layout>
-    <div class="min-h-screen flex  justify-center">
-    <div class="overflow-x-auto h-96 w-1/2 ">
+    <div class="max-h-screen flex  justify-center p-2">
+    <div class="overflow-x-auto h-96 w-1/2 bg-green-50">
         @if (session('success'))
             <div class="mb-4 p-3 bg-green-100 text-green-700 rounded">
                 {{-- Traducimos el mensaje por si viene en clave de traducción --}}
@@ -20,7 +20,7 @@
             <tbody>
 
             @foreach($projects as $project)
-                <tr>
+                <tr class="hover:bg-gray-200">
                     <td>{{$project->name}}</td>
                     <td>{{$project->description}}</td>
                     <td>{{$project->hours}}</td>
