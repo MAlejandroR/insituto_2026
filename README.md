@@ -1,8 +1,13 @@
 # Creación de un proyecto con laravel
 1. [Instalación de laravel](./doc/instalacion.md)
 2. [Creando un proyecto de laravel](./doc/crear_proyecto.md)]
-3. 
-
+3. [Instalando breeze en el proyecto](./doc/instalacion_breeze.md)
+4. [Actualizar tailwind a versión 4](./doc/actualizar_tailwind.md)
+5. Instalar daisy
+6. Crear la estructura de pantallas con componetnes blade
+7. Integrar breeze en mi html
+8. Craer un crud
+9. Instalar todos los paquetes necesarios: cómo y cuales son
 
 
 
