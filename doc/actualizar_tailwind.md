@@ -67,7 +67,10 @@ Quitamos lo que hubiera y dejamos lo siguiente
 
 5.- Añadimos en nuestro layout
 En la secicón de head
+
+```bash
     @vite (["resources/css/app.css","resources/js/app.js"])
+``
 
 
 
