@@ -66,6 +66,11 @@ Quitamos lo que hubiera y dejamos lo siguiente
 @import "tailwindcss";
 ```
 
+5.- Añadimos en nuestro layout
+En la secicón de head
+    @vite (["resources/css/app.css","resources/js/app.js"])
+
+
 
 
 
