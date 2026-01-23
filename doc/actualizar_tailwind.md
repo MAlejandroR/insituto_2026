@@ -1,90 +1,75 @@
-## Instalación
-Si estamos en ubuntu actualizamos el sistema antes de  instalar
+## Actualizar Tailwind
+Tras intalar breeze, el sistema deja instalado tailwind en su versión 3.
+
+Conviene actualizar tailwind  a su versión 4
+
+Acciones:
+Para desinstalar elminamos de los ficheros donde especificamos las instalaciones
+1. Borrar en package json las referenicas a tailwind y a postcss
+   Entes de borrar
+   ```bash
+    "devDependencies": {
+        "@tailwindcss/forms": "^0.5.2",
+        "@tailwindcss/vite": "^4.0.0",
+        "alpinejs": "^3.4.2",
+        "autoprefixer": "^10.4.2",
+        "axios": "^1.11.0",
+        "concurrently": "^9.0.1",
+        "laravel-vite-plugin": "^2.0.0",
+        "postcss": "^8.4.31",
+        "tailwindcss": "^3.1.0",
+        "vite": "^7.0.7"
+    }
+   ```
+Después de borrar:
 ```bash
-sudo apt update
-sudo apt upgrade -y
+    "devDependencies": {
+        "alpinejs": "^3.4.2",
+        "autoprefixer": "^10.4.2",
+        "axios": "^1.11.0",
+        "concurrently": "^9.0.1",
+        "laravel-vite-plugin": "^2.0.0",
+        "vite": "^7.0.7"
+    }
 ```
 
-**1. Instalar php**
-Preferiblemente tener instalado la versión 8.3 o mejor la 8.4. Esto lo debes de instalar en tu sistema
-No se necesita apache, ya que el servidor web va a ser un servidor interno que tiene cada aplicación de laravel.
----
-<hr style="height:2px; background-color:#2563eb; border:none;">
-
-**2. Instalar librerías necesarias de php**
-
-
-
+Elimiar los siguientes ficheros y carpetas
 ```bash
-sudo apt install -y \
-php-cli \
-php-curl \
-php-mbstring \
-php-xml \
-php-bcmath \
-php-zip \
-php-mysql
-```
-En caso de windows simplementes deberás de descomentar en el fichero **php.ini** las líneas donde aparezcan las librerías
-```bash
-   extension=curl
-   extension=dom
-   extension=mbstring
-   extension=pdo_mysql
-   extension=xml
-   extension=zip
-```
-<hr style="height:2px; background-color:#2563eb; border:none;">
-
-**3. Instalar composer**
-Se da por supuesto que curl está instalado
-Puedes seguir aquí las isntrucciones de la instalación, tanto para windows como para linux
-https://getcomposer.org/download/
-
-<hr style="height:2px; background-color:#2563eb; border:none;">
-
-**4. Instalar el instalador de laravel**
-Es cómodo tener este instalador que además en el proceso de instalación suele guiarte y preguntar opciones del proyecto
-```bash
-composer global require laravel/installer
-
-```
-Asegúrate luego de tener el programa laravel en el path del sistema. En windows simplemente vuelve a abrir la ventana del terminal o powershell y ya está.
-En linux
-<hr style="height:2px; background-color:#2563eb; border:none;">
-
-**5. Modificar el path del sistema para poder ejecutar laravel**
-Previamente localizamos dónde se ha instalado laravel.
-En mi caso en el docker /home/manuel/.config/composer/vendor/laravel/installer/bin
-Revisar la ruta, no siempre es esa
-
-Editamos el fichero .bashrc (puede ser otro en función del shell que tengas) y modificamos la variable  path añadiendo esta ruta
-Para ello al final del fichero escribimos
-```bash
-PATH=$PATH:$HOME/.config/composer/vendor/laravel/installer/bin
+sudo rm -r node_modules
+sudo rm package-lock.json
+sudo rm tailwind.config.js postcss.config.js
 ```
 
-Cargamos el nuevo profile
+2.- Instalamos tailwindcss en su versión 
 ```bash
-source ./.bashrc
+npm install tailwindcss @tailwindcss/vite
 ```
-o bien con el punto que es igual que el comando source
+3.- Modificamos el fichero de vite vite.config.php
+Añadimos que vite use el framework tailwind
 
 ```bash
-. ./.bashrc
+import { defineConfig } from 'vite';
+import tailwindcss from "@tailwindcss/vite";
+export default defineConfig({
+    plugins: [
+        laravel({
+            input: ['resources/css/app.css', 'resources/js/app.js'],
+            refresh: true,
+        }),
+        tailwindcss()
+    ],
+});
 ```
-<hr style="height:2px; background-color:#2563eb; border:none;">
-
-**6. Instalar node y npm en sus últimas versiones**
-(mínimo se necesita creo que 18 de node y 9 de npm), pongo aquí la 22
-Laravel moderno utiliza Node.js y npm para gestionar los assets (Vite, CSS, JS).
-
+4.- Modificamos el app.css incluyendo que use tailwind
+Quitamos lo que hubiera y dejamos lo siguiente
 ```bash
-curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
-sudo apt install -y nodejs
+@import "tailwindcss";
 ```
-Verifica después la versión
-```bash
-node -v
-npm -v
-```
+
+
+
+
+
+
+
+
