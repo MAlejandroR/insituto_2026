@@ -25,7 +25,6 @@ Después de borrar:
 ```bash
     "devDependencies": {
         "alpinejs": "^3.4.2",
-        "autoprefixer": "^10.4.2",
         "axios": "^1.11.0",
         "concurrently": "^9.0.1",
         "laravel-vite-plugin": "^2.0.0",
